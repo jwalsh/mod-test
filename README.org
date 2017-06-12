@@ -1,0 +1,59 @@
+* Background
+
+This is a review of the Yarn and NPM 5 dependency tracking.
+
+* Notes
+
+This follows some of the notes as inidicated with the non-determinism problem as indicated in
+
+- https://docs.npmjs.com/how-npm-works/npm3-nondet
+- https://yarnpkg.com/blog/2017/05/31/determinism/
+- http://blog.npmjs.org/post/161081169345/v500
+
+** Other Dependency Managers
+
+- https://blog.rust-lang.org/2016/05/05/cargo-pillars.html
+- http://doc.crates.io/cargo/core/resolver/index.html
+- https://github.com/jazzband/pip-tools
+- http://bundler.io/v1.3/rationale.html
+
+* Process
+
+We look at the following under NPM 3 and NPM 5:
+
+#+BEGIN_SRC json
+{
+  "dependencies": {
+    "@jwalsh/mod-a": "~1",
+    "@jwalsh/mod-b": "~1",
+    "@jwalsh/mod-c": "~1",
+    "@jwalsh/mod-d": "~1"
+  }
+}
+#+END_SRC
+
+As NPM 5 indicates in it's dependency resolution this shows that `mod-d` has a depenency on a v2 of mod-a (`resolved` and `integrity` fields removed for readability):
+
+#+BEGIN_SRC json
+  {
+    "dependencies": {
+      "@jwalsh/mod-a": {
+        "version": "1.0.1",
+      },
+      "@jwalsh/mod-b": {
+        "version": "1.0.1",
+      },
+      "@jwalsh/mod-c": {
+        "version": "1.0.1",
+      },
+      "@jwalsh/mod-d": {
+        "version": "1.0.3",
+        "dependencies": {
+          "@jwalsh/mod-a": {
+            "version": "2.0.1",
+          }
+        }
+      }
+    }
+  }
+#+END_SRC

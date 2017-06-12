@@ -17,9 +17,9 @@
     "babel-preset-node6": "^11.0.0"
   },
   "dependencies": {
-    "@jwalsh/mod-a": "^1.0.1",
-    "@jwalsh/mod-b": "^1.0.1",
-    "@jwalsh/mod-c": "^1.0.1",
-    "@jwalsh/mod-d": "^1.0.3"
+    "@jwalsh/mod-a": "~1",
+    "@jwalsh/mod-b": "~1",
+    "@jwalsh/mod-c": "~1",
+    "@jwalsh/mod-d": "~1"
   }
 }
