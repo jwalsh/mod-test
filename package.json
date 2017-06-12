@@ -1,0 +1,20 @@
+{
+  "name": "mod-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/babel-node index.js",
+    "test": "./node_modules/.bin/babel-node test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2"
+  },
+  "dependencies": {
+    "@jwalsh/mod-a": "^1.0.1"
+  }
+}
